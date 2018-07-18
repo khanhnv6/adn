@@ -1,0 +1,26 @@
+# /etc/conf.d/adnd: config file for /etc/init.d/adnd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/adn/adn.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/adnd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/adnd.pid"
+
+# Where to write adnd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/adnd"
+
+# User and group to own adnd process
+#BITCOIND_USER="adn"
+#BITCOIND_GROUP="adn"
+
+# Path to adnd executable
+#BITCOIND_BIN="/usr/bin/adnd"
+
+# Nice value to run adnd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

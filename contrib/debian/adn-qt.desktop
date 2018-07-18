@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Adn
+Comment=Adn P2P Cryptocurrency
+Comment[fr]=Adn, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Adn, eşten eşe kriptografik sanal para birimi
+Exec=adn-qt %u
+Terminal=false
+Type=Application
+Icon=adn128
+MimeType=x-scheme-handler/adn;
+Categories=Office;Finance;

@@ -1,0 +1,28 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/adn_bg.qm</file>
+        <file alias="ca">locale/adn_ca.qm</file>
+        <file alias="cs">locale/adn_cs.qm</file>
+        <file alias="da">locale/adn_da.qm</file>
+        <file alias="de">locale/adn_de.qm</file>
+        <file alias="en">locale/adn_en.qm</file>
+        <file alias="en_US">locale/adn_en_US.qm</file>
+        <file alias="es">locale/adn_es.qm</file>
+        <file alias="fi">locale/adn_fi.qm</file>
+        <file alias="fr_FR">locale/adn_fr_FR.qm</file>
+        <file alias="it">locale/adn_it.qm</file>
+        <file alias="ja">locale/adn_ja.qm</file>
+        <file alias="ko_KR">locale/adn_ko_KR.qm</file>
+        <file alias="nl">locale/adn_nl.qm</file>
+        <file alias="pl">locale/adn_pl.qm</file>
+        <file alias="pt">locale/adn_pt.qm</file>
+        <file alias="pt_BR">locale/adn_pt_BR.qm</file>
+        <file alias="ro_RO">locale/adn_ro_RO.qm</file>
+        <file alias="ru">locale/adn_ru.qm</file>
+        <file alias="sk">locale/adn_sk.qm</file>
+        <file alias="sv">locale/adn_sv.qm</file>
+        <file alias="uk">locale/adn_uk.qm</file>
+        <file alias="zh_CN">locale/adn_zh_CN.qm</file>
+        <file alias="zh_TW">locale/adn_zh_TW.qm</file>
+    </qresource>
+</RCC>
