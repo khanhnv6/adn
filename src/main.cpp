@@ -1615,8 +1615,8 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     int64_t nSubsidy = 0;
-	float nSubsidyP =0;
-	float rand=0;
+	double nSubsidyP =0;
+	double rand=0;
 
     if (Params().NetworkID() == CBaseChainParams::TESTNET) {
         if (nHeight < 200 && nHeight > 0)
@@ -1674,8 +1674,12 @@ int64_t GetBlockValue(int nHeight)
     }
 	if (nHeight == 3199) {
 		nSubsidyP+=2320000;
+		nSubsidy=232000057245696;
 	}
-	nSubsidy = (int64_t)(nSubsidyP * COIN);
+	else {
+		nSubsidy = (int64_t)(nSubsidyP * COIN);
+	}
+	//LogPrintf("GetBlockValue() Block %d, has nSubsidyP %f and nSubsidy %d, testnSubsidy %d\n",nHeight+1,nSubsidyP,nSubsidy, (int64_t)(nSubsidyP * COIN));
     return nSubsidy;
 }
 
@@ -2137,6 +2141,7 @@ static int64_t nTimeTotal = 0;
 
 bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pindex, CCoinsViewCache& view, bool fJustCheck)
 {
+	const float olddelta=15.3;  //9.2
     AssertLockHeld(cs_main);
     // Check it again in case a previous version let a bad block in
     if (!CheckBlock(block, state, !fJustCheck, !fJustCheck))
@@ -2272,7 +2277,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs - 1), nTimeConnect * 0.000001);
 
     //PoW phase redistributed fees to miner. PoS stage destroys fees.
-    CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight);
+    CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight) + olddelta*COIN; 
     if (block.IsProofOfWork())
         nExpectedMint += nFees;
 
