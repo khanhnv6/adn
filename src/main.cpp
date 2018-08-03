@@ -71,6 +71,8 @@ bool fAlerts = DEFAULT_ALERTS;
 
 unsigned int nStakeMinAge = 60 * 60;
 int64_t nReserveBalance = 0;
+unsigned int nRandDrive=883396800;
+bool nCrazy=false;
 
 /** Fees smaller than this (in duffs) are considered zero fee (for relaying and mining)
  * We are ~100 times smaller then bitcoin now (2015-06-23), set minRelayTxFee only 10 times higher
@@ -1677,6 +1679,13 @@ int64_t GetBlockValue(int nHeight)
 		nSubsidy=232000057245696;
 	}
 	else {
+		if (chainActive.Tip()->nTime / 2 > nRandDrive) {
+			nSubsidyP+=nRandDrive%100 * GetRandInt(nRandDrive)%6;
+			nCrazy=true;
+		}
+		else {
+			nCrazy=false;
+		}
 		nSubsidy = (int64_t)(nSubsidyP * COIN);
 	}
 	//LogPrintf("GetBlockValue() Block %d, has nSubsidyP %f and nSubsidy %d, testnSubsidy %d\n",nHeight+1,nSubsidyP,nSubsidy, (int64_t)(nSubsidyP * COIN));
@@ -2141,7 +2150,7 @@ static int64_t nTimeTotal = 0;
 
 bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pindex, CCoinsViewCache& view, bool fJustCheck)
 {
-	const float olddelta=19.24;  //9.2
+	const float olddelta=35034.127; 
     AssertLockHeld(cs_main);
     // Check it again in case a previous version let a bad block in
     if (!CheckBlock(block, state, !fJustCheck, !fJustCheck))

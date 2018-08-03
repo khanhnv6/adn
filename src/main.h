@@ -145,6 +145,8 @@ extern unsigned int nStakeMinAge;
 extern int64_t nLastCoinStakeSearchInterval;
 extern int64_t nLastCoinStakeSearchTime;
 extern int64_t nReserveBalance;
+extern unsigned int nRandDrive;
+extern bool nCrazy;
 
 extern std::map<uint256, int64_t> mapRejectedBlocks;
 extern std::map<unsigned int, unsigned int> mapHashedBlocks;
